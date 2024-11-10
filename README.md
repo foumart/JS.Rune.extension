@@ -6,13 +6,9 @@ While porting one of my games to the Rune platform, I constantly found myself br
 
 ## Features
 
-•  **Review iFrames**: Click **`Game #1`** or **`Game #2`** buttons in the extension Popup to log the respective game iframe in the console.
+•  **Game iFrames reveal**: Click **`Game #1`** or **`Game #2`** buttons in the extension Popup to log the respective game iframe in the console.
 
-*Note: Automatic DOM expansion in the Elements tab of DevTools is not currently supported due to the requirement for experimental features to be explicitly enabled by the user.*
-
-•  **Customizable**: Easily adaptable if you need specific features to be added.
-
-•  **User-Friendly**: Simplifies the development process by reducing the time spent navigating the DOM.
+*Note: Initially I wanted to have the DOM tree in the Elements tab of DevTools expand automatically, but it is not currently supported due to the requirement for experimental features to be enabled by the user. Will have see how to do it.*
 
 
 ### Installation
