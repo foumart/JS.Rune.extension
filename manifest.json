@@ -1,32 +1,35 @@
 {
-    "manifest_version": 3,
-    "name": "Expand DOM to Rune iFrame",
-    "version": "1.0",
-    "description": "Automatically expands the DOM tree to the Rune iFrame level.",
-    "permissions": [
-        "activeTab",
-        "scripting"
-    ],
-    "host_permissions": ["<all_urls>"],
-    "background": {
-        "service_worker": "background.js"
-    },
-    "content_scripts": [
-        {
-            "matches": [
-                "<all_urls>"
-            ],
-            "js": [
-                "content.js"
-            ]
-        }
-    ],
-    "action": {
-        "default_popup": "popup.html",
-        "default_icon": {
-            "16": "images/rune_16.png",
-            "48": "images/rune_48.png",
-            "128": "images/rune_128.png"
-        }
-    }
+	"manifest_version": 3,
+	"name": "Rune Browser",
+	"version": "1.0",
+	"description": "Automatically expands the DOM tree to the Rune Game iFrame.",
+	"permissions": [
+		"activeTab",
+		"scripting",
+		"tabs"
+	],
+	"host_permissions": ["<all_urls>"],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content.js"]
+		}
+	],
+	"web_accessible_resources": [
+		{
+			"resources": ["images/rune_16.png", "images/rune_48.png", "images/rune_128.png", "popup.html"],
+			"matches": ["<all_urls>"]
+		}
+	],
+	"action": {
+		"default_icon": "images/rune_128.png"
+	},
+	"icons": {
+		"16": "images/rune_16.png",
+		"48": "images/rune_48.png",
+		"128": "images/rune_128.png"
+	}
 }

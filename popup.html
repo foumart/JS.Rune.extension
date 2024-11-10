@@ -2,25 +2,60 @@
 <html>
 
 <head>
-    <title>Rune DOM Browser</title>
-    <style>
-        html, body {
-            width: 250px;
-            background-color: #310540;
-            color: white;
-            border: 1px solid black;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-    </style>
+	<title>Rune DOM Browser</title>
+	<style>
+		html, body {
+			overflow: hidden;
+			margin: 0;
+			padding: 5px;
+		}
+		div {
+			background-color: #526;
+			color: white;
+			border: 1px solid black;
+			border-radius: 10px;
+			box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.35);
+			text-align: center;
+			padding: 8px;
+		}
+		h2 {
+			padding: 0 0 5px;
+			margin: 0;
+		}
+		button {
+			background: linear-gradient(rgb(160, 64, 232) 0%, rgb(112, 64, 192) 100%);
+			border-radius: 6px;
+			color: white;
+			font-size: 16px;
+			font-weight: bold;
+			line-height: 140%;
+			border: none;
+			margin: 5px 2px 2px;
+			cursor: pointer;
+		}
+		button:hover {
+			background: linear-gradient(rgb(212, 84, 252) 0%, rgb(132, 84, 212) 100%);
+		}
+		img {
+			margin: 0 2px -2px -12px;
+		}
+		span {
+			font-size: 11px;
+			position: absolute;
+			margin: -5px 0 0 15px;
+			cursor: pointer;
+		}
+	</style>
 </head>
 
 <body>
-    <h2>Rune DOM Browser</h2>
-    <button id="expandFirstIframe">Game #1</button>
-    <button id="expandSecondIframe">Game #2</button>
-    <script src="popup.js"></script>
+	<div>
+		<h2><img src='images/rune_16_transparent.png'/> Rune Browser <span id="closeExtension">&#10006;</span></h2>
+		<button id="expandFirstIframe">Game #1</button>
+		<button id="expandSecondIframe">Game #2</button>
+		<script src="popup.js"></script>
+	</div>
+	
 </body>
 
 </html>
