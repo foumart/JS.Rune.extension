@@ -1,0 +1,21 @@
+.popup {
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 210px;
+    height: 120px;
+    z-index: 2147483650;
+    border: none;
+    background-color: transparent;
+    position: fixed;
+}
+
+/* TODO: change appearance on narrow screens */
+/*@media (max-width: 700px) {
+    .popup {
+        width: auto;
+        height: 30px;
+        left: 130px;
+    }
+}*/

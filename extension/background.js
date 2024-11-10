@@ -101,18 +101,7 @@ function generatePopup() {
 
 	const iframe = document.createElement('iframe');
 	iframe.setAttribute('id', 'cm-frame');
-	iframe.setAttribute('style', `
-		top: 0;
-		left: 0;
-		margin: 0;
-		padding: 0;
-		width: 210px;
-		height: 120px;
-		z-index: 2147483650;
-		border: none;
-		background-color: transparent;
-		position:fixed;`
-	);
+	iframe.classList.add('popup');
 
 	iframe.src = chrome.runtime.getURL('popup.html');
 	iframe.setAttribute('allow', '');

@@ -37,7 +37,7 @@
 			background: linear-gradient(rgb(212, 84, 252) 0%, rgb(132, 84, 212) 100%);
 		}
 		img {
-			margin: 0 2px -2px -12px;
+			margin: 0 2px -2px -10px;
 		}
 		span {
 			font-size: 11px;
@@ -45,12 +45,29 @@
 			margin: -5px 0 0 15px;
 			cursor: pointer;
 		}
+		/* TODO: change appearance on narrow screens */
+		/*@media (max-width: 700px) {
+			html, body {
+				padding: 0;
+			}
+			div {
+				display: flex;
+				padding: 0;
+			}
+			#extensionTitle {
+				display: none;
+			}
+		}*/
 	</style>
 </head>
 
 <body>
 	<div>
-		<h2><img src='images/rune_16_transparent.png'/> Rune Browser <span id="closeExtension">&#10006;</span></h2>
+		<h2>
+			<img src='images/rune_16_transparent.png'/>
+			Rune Browser
+			<span id="closeExtension">&#10006;</span>
+		</h2>
 		<button id="expandFirstIframe">Game #1</button>
 		<button id="expandSecondIframe">Game #2</button>
 		<script src="popup.js"></script>
