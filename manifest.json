@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Expand DOM to Rune iFrame",
+    "version": "1.0",
+    "description": "Automatically expands the DOM tree to the Rune iFrame level.",
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/rune_16.png",
+            "48": "images/rune_48.png",
+            "128": "images/rune_128.png"
+        }
+    }
+}
