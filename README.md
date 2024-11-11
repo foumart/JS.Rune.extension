@@ -8,7 +8,7 @@ While porting one of my games to the Rune platform, I constantly found myself br
 
 •  **Game iFrames reveal**: Click **`Game #1`** or **`Game #2`** buttons in the extension Popup to log the respective game iframe in the console.
 
-*Note: Initially I wanted to have the DOM tree in the Elements tab of DevTools expand automatically, but it is not currently supported due to the requirement for experimental features to be enabled by the user. Will have see how to do it.*
+*Note: Initially I wanted to have the DOM tree in the Elements tab of DevTools expand automatically, but it is not currently supported due to the requirement for experimental features to be enabled by the user. For now using* **`Reveal in Elements Panel`** *button in the logged iframe right click context menu expands the DOM tree conveniently enough.*
 
 
 ### Installation
@@ -20,6 +20,7 @@ While porting one of my games to the Rune platform, I constantly found myself br
 
 ### Usage
 
-1. Open your project in Chrome.
+1. Open your Rune project in Chrome (Rune DevUI test page).
 2. Click the Rune Dev Tools extension icon in the toolbar to open the extension Popup.
 3. Clicking one of the buttons in the Popup will log the desired game iframe in the console.
+4. Right Click on the logged iFrame and select **`Reveal in Elements Panel`** from the context menu - the DevTools Elements tab will be switched, and the DOM tree will be expanded, saving you dozens of clicks and frustrating DOM navigation. Enjoy!
