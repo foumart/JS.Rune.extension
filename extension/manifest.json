@@ -21,11 +21,12 @@
 	],
 	"web_accessible_resources": [
 		{
-			"resources": ["images/rune_16.png", "images/rune_48.png", "images/rune_128.png", "popup.html"],
+			"resources": ["images/rune_16.png", "images/rune_48.png", "images/rune_128.png", "popup.html", "initial.html"],
 			"matches": ["<all_urls>"]
 		}
 	],
 	"action": {
+		"default_popup": "initial.html",
 		"default_icon": "images/rune_128.png"
 	},
 	"icons": {

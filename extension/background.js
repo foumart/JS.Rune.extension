@@ -22,19 +22,6 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
 	});
 });
 
-// extension browser icon click
-chrome.action.onClicked.addListener(async function (tab) {
-	//console.log("chrome.tabs.onClicked", pageTitle, tab.url);
-	if (isValidUrl(tab.url)) {
-		if (pageTitle === targetTitle) {
-			chrome.scripting.executeScript({
-				target: { tabId: tab.id },
-				func: generatePopup
-			});
-		}
-	}
-});
-
 // extension popup message listener
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	// listen for messages from content.js
@@ -57,6 +44,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		//console.log("expandIframe");
 		const iframeIndex = message.index;
 		chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+			console.log(tabs);
 			if (isValidUrl(tabs[0].url)) {
 				chrome.scripting.executeScript({
 					target: { tabId: tabs[0].id },
@@ -74,6 +62,20 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 					target: { tabId: tabs[0].id },
 					func: closePopupIframe
 				});
+			}
+		});
+	}
+	// listen from messages from initial.js
+	else if (message.action === "openDevUI") {
+		//console.log("openDevUI");
+		chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+			if (isValidUrl(tabs[0].url)) {
+				if (pageTitle === targetTitle) {
+					chrome.scripting.executeScript({
+						target: { tabId: tabs[0].id },
+						func: generatePopup
+					});
+				}
 			}
 		});
 	}
@@ -119,31 +121,17 @@ function closePopupIframe() {
 }
 
 function expandDOMToIframe(iframeIndex) {
-	//console.log(`Expanding DOM to reveal iframe #${iframeIndex}`);
-
 	const iframes = document.querySelectorAll('iframe');
 	//console.log(`Total iframes found: ${iframes.length}`);
-	
-	if (iframes.length >= iframeIndex) {
-		const targetIframe = iframes[iframeIndex - 1];
-
-		console.log(targetIframe);
-
-		const expandAll = (node) => {
-			if (node.tagName === "IFRAME" && node === targetIframe) {
-				//console.log(`Expanded to iframe #${iframeIndex}`);
-				return;
-			}
-			if (node.children) {
-				for (let child of node.children) {
-					child.open = true;
-					expandAll(child);
-				}
-			}
-		};
-
-		expandAll(document.documentElement);
-	} else {
-		//console.log(`No iframe found with index ${iframeIndex}`);
+	if (!iframeIndex) {
+		iframes.forEach((iframe, index) => {
+			if (index < iframes.length) console.log("Game #1", iframe);
+		});
+	}
+	else if (iframes.length >= iframeIndex) {
+		console.log(iframes[iframeIndex - 1]);
+	}
+	else {
+		console.log(`No iframe found with index ${iframeIndex}`);
 	}
 }
